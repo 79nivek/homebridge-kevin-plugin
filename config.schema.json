@@ -1,6 +1,6 @@
 {
   "pluginAlias": "KevinHomebridgePlugin",
-  "pluginType": "platform",
+  "pluginType": "accessory",
   "singular": true,
   "schema": {
     "type": "object",
@@ -9,7 +9,16 @@
         "title": "Name",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "Example Dynamic Platform",
+        "maxTemp": "number",
+        "minTemp": "number",
+        "baseURLApi": "string",
+        "apiKey": "string",
+        "endPoint": {
+          "power": "string",
+          "temperature": "string",
+          "mode": "string"
+        }
       }
     }
   }

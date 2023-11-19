@@ -4,13 +4,11 @@ import {
   Logger,
   PlatformAccessory,
   PlatformConfig,
-  AccessoryConfig,
   Service,
   Characteristic,
 } from "homebridge";
 
 import { PLATFORM_NAME, PLUGIN_NAME } from "./settings";
-import { FanAccessory } from "./FanAccessory";
 
 export class KevinHomebridgePlatform implements DynamicPlatformPlugin {
   public readonly Service: typeof Service = this.api.hap.Service;
@@ -23,7 +21,7 @@ export class KevinHomebridgePlatform implements DynamicPlatformPlugin {
   constructor(
     public readonly log: Logger,
     public readonly config: PlatformConfig,
-    public readonly api: API
+    public readonly api: API,
   ) {
     this.log.debug("Finished initializing platform:", this.config.name);
 

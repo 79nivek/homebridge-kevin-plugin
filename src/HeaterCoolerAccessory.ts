@@ -24,7 +24,7 @@ export enum ToshibaACMode {
   HEAT = 3,
 }
 
-class CacheItem<T = any> {
+class CacheItem<T = unknown> {
   private ttl: number;
   // cache time is 30s (30 * 1000) in milliseconds
   private cacheTime = 1000 * 30;

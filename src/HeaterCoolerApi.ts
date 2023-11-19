@@ -22,9 +22,12 @@ export class ACApi {
 
   setMode = async (mode: ACMode) => {
     try {
-      const res = await this.axiosInstance.put("/ac/mode", {
-        value: mode,
-      });
+      const res = await this.axiosInstance.put(
+        this.config?.endPoint?.mode || "/ac/mode",
+        {
+          value: mode,
+        }
+      );
       this.log.info("set mode", res.data);
     } catch (err) {
       this.log.error("set mode", err);
@@ -33,7 +36,9 @@ export class ACApi {
 
   getMode = async () => {
     try {
-      const res = await this.axiosInstance.get("/ac/mode");
+      const res = await this.axiosInstance.get(
+        this.config?.endPoint?.mode || "/ac/mode"
+      );
 
       this.log.info("[API] getMode", res.data);
 
@@ -52,9 +57,12 @@ export class ACApi {
 
   setTemperature = async (temperature: number) => {
     try {
-      const res = await this.axiosInstance.put("/ac/temperature", {
-        value: temperature,
-      });
+      const res = await this.axiosInstance.put(
+        this.config?.endPoint?.temperature || "/ac/temperature",
+        {
+          value: temperature,
+        }
+      );
 
       this.log.info("syncTemperature", res.data);
     } catch (err) {
@@ -64,7 +72,9 @@ export class ACApi {
 
   getTemperature = async () => {
     try {
-      const res = await this.axiosInstance.get("/ac/temperature");
+      const res = await this.axiosInstance.get(
+        this.config?.endPoint?.temperature || "/ac/temperature"
+      );
 
       this.log.info("[API] getTemperature", res.data);
 
@@ -83,9 +93,12 @@ export class ACApi {
 
   setPower = async (power: boolean) => {
     try {
-      const res = await this.axiosInstance.put("/ac/power", {
-        value: power ? "on" : "off",
-      });
+      const res = await this.axiosInstance.put(
+        this.config?.endPoint?.power || "/ac/power",
+        {
+          value: power ? "on" : "off",
+        }
+      );
 
       this.log.info("syncPower", res.data);
     } catch (err) {
@@ -93,7 +106,7 @@ export class ACApi {
     }
   };
 
-  asyncDebounce = (func: Function, wait: number) => {
+  asyncDebounce = (func: any, wait: number) => {
     let timeout: NodeJS.Timeout;
     return async (...args: any[]) => {
       clearTimeout(timeout);

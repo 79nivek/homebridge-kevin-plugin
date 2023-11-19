@@ -13,10 +13,10 @@
     "dist"
   ],
   "rules": {
-    "quotes": ["warn", "single"],
+    "quotes": ["warn", "double"],
     "indent": ["warn", 2, { "SwitchCase": 1 }],
     "semi": ["off"],
-    "comma-dangle": ["warn", "always-multiline"],
+    "comma-dangle": ["off"],
     "dot-notation": "off",
     "eqeqeq": "warn",
     "curly": ["warn", "all"],
@@ -33,6 +33,7 @@
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/semi": ["warn"],
-    "@typescript-eslint/member-delimiter-style": ["warn"]
+    "@typescript-eslint/member-delimiter-style": ["warn"],
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }
