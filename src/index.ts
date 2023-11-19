@@ -1,11 +1,13 @@
-import { API } from 'homebridge';
+import { API } from "homebridge";
 
-import { PLATFORM_NAME } from './settings';
-import { ExampleHomebridgePlatform } from './platform';
+import { FanAccessory } from "./FanAccessory";
+import { AcAccessory } from "./HeaterCoolerAccessory";
 
 /**
  * This method registers the platform with Homebridge
  */
 export = (api: API) => {
-  api.registerPlatform(PLATFORM_NAME, ExampleHomebridgePlatform);
+  // api.registerPlatform(PLATFORM_NAME, KevinHomebridgePlatform);
+  api.registerAccessory("homebridge-plugin-kevin", "fan", FanAccessory);
+  api.registerAccessory("homebridge-plugin-kevin", "ac", AcAccessory);
 };
