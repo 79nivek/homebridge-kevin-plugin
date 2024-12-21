@@ -13,10 +13,10 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/quangnam020397/homebridge-kevin-plugin.git"
+    "url": "https://github.com/79nivek/homebridge-kevin-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/quangnam020397/homebridge-kevin-plugin/issues"
+    "url": "https://github.com/79nivek/homebridge-kevin-plugin/issues"
   },
   "keywords": [
     "homebridge-plugin"
