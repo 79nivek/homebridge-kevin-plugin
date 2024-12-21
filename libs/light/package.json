@@ -1,0 +1,34 @@
+{
+  "name": "@79nivek/homebridge-light",
+  "version": "0.0.1",
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ],
+  "author": {
+    "name": "79nivek",
+    "email": "quangnam.020397@gmail.com"
+  },
+  "description": "A short description about what your plugin does.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quangnam020397/homebridge-kevin-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/quangnam020397/homebridge-kevin-plugin/issues"
+  },
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "engines": {
+    "node": "^22.4.1",
+    "homebridge": "^1.8.5"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts"
+}

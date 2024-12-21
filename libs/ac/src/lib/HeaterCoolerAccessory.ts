@@ -5,8 +5,8 @@ import {
   Logging,
   API,
   AccessoryPlugin,
-} from "homebridge";
-import { ACApi } from "./HeaterCoolerApi";
+} from 'homebridge';
+import { ACApi } from './HeaterCoolerApi';
 
 export enum ACMode {
   OFF = 0,
@@ -68,7 +68,13 @@ export class AcAccessory implements AccessoryPlugin {
   private service: Service;
   private intervalRef: NodeJS.Timeout | undefined;
 
-  private stage;
+  private stage: {
+    On: CacheItem<boolean>;
+    currentTemperature: CacheItem<number>;
+    targetTemperature: CacheItem<number>;
+    currentMode: CacheItem<ACMode>;
+    targetMode: CacheItem<ACMode>;
+  };
 
   private readonly acApi: ACApi;
 
@@ -115,10 +121,10 @@ export class AcAccessory implements AccessoryPlugin {
       api.hap.uuid.generate(config.name)
     );
 
-    this.log.info("config", config);
+    this.log.info('config', config);
 
     // create the AC service
-    this.service = accessory.addService(api.hap.Service.Thermostat, "AC");
+    this.service = accessory.addService(api.hap.Service.Thermostat, 'AC');
 
     // create handlers for required characteristics
     this.service
@@ -162,8 +168,8 @@ export class AcAccessory implements AccessoryPlugin {
   /**
    * Handle requests to get the current value of the "On" characteristic
    */
-  private handleActiveGet(): CharacteristicValue {
-    this.log.debug("GET Active");
+  private handleActiveGet(): Promise<CharacteristicValue> {
+    this.log.debug('GET Active');
     return this.stage.On.getValue();
   }
 
@@ -171,29 +177,30 @@ export class AcAccessory implements AccessoryPlugin {
    * Handle requests to set the "On" characteristic
    */
   private handleActiveSet(value: CharacteristicValue) {
-    this.log.info("SET Active:", value);
+    this.log.info('SET Active:', value);
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     this.stage.On;
 
     if (this.stage.On) {
-      this.log.info("AC is on");
+      this.log.info('AC is on');
     } else {
-      this.log.info("AC is off");
+      this.log.info('AC is off');
     }
   }
 
   /**
    * Handle requests to get the current value of the "Current Temperature" characteristic
    */
-  private handleGetCurrentTemperature(): CharacteristicValue {
-    this.log.debug("GET CurrentTemperature");
+  private handleGetCurrentTemperature(): Promise<CharacteristicValue> {
+    this.log.debug('GET CurrentTemperature');
     return this.stage.currentTemperature.getValue();
   }
 
   /**
    * Handle requests to get the current value of the "Target Temperature" characteristic
    */
-  private handleGetTargetTemperature(): CharacteristicValue {
-    this.log.debug("GET TargetHeaterCoolerTemperature");
+  private handleGetTargetTemperature(): Promise<CharacteristicValue> {
+    this.log.debug('GET TargetHeaterCoolerTemperature');
     return this.stage.targetTemperature.getValue();
   }
 
@@ -201,10 +208,13 @@ export class AcAccessory implements AccessoryPlugin {
    * Handle requests to set the "Target Temperature" characteristic
    */
   private async handleSetTargetTemperature(value: CharacteristicValue) {
-    this.log.info("SET TargetHeaterCoolerTemperature:", value);
+    this.log.info('SET TargetHeaterCoolerTemperature:', value);
     this.stage.targetTemperature.setData(Number(value));
 
-    this.log.info("AC target temperature:", this.stage.targetTemperature.getValue());
+    this.log.info(
+      'AC target temperature:',
+      this.stage.targetTemperature.getValue()
+    );
 
     // update the current value
     this.service.updateCharacteristic(
@@ -251,7 +261,7 @@ export class AcAccessory implements AccessoryPlugin {
       }
 
       this.log.info(
-        "AC current temperature:",
+        'AC current temperature:',
         await this.stage.currentTemperature.getValue()
       );
 
@@ -267,7 +277,7 @@ export class AcAccessory implements AccessoryPlugin {
    * Handle requests to get the current value of the "Target Heating Cooling State" characteristic
    */
   private async handleGetTargetMode(): Promise<CharacteristicValue> {
-    this.log.debug("GET TargetHeatingCoolingState");
+    this.log.debug('GET TargetHeatingCoolingState');
     return await this.stage.targetMode.getValue();
   }
 
@@ -275,13 +285,13 @@ export class AcAccessory implements AccessoryPlugin {
    * Handle requests to set the "Target Heating Cooling State" characteristic
    */
   private async handleSetTargetMode(value: CharacteristicValue) {
-    this.log.info("SET TargetMode:", value);
+    this.log.info('SET TargetMode:', value);
 
     this.stage.targetMode.setData(value as ACMode);
 
     this.stage.currentMode = this.stage.targetMode;
 
-    this.log.info("AC target mode:", await this.stage.targetMode.getValue());
+    this.log.info('AC target mode:', await this.stage.targetMode.getValue());
 
     // update the current value
     this.service.updateCharacteristic(
@@ -314,7 +324,7 @@ export class AcAccessory implements AccessoryPlugin {
    */
 
   private async handleGetCurrentMode(): Promise<CharacteristicValue> {
-    this.log.debug("GET CurrentHeatingCoolingState");
+    this.log.debug('GET CurrentHeatingCoolingState');
     return await this.stage.currentMode.getValue();
   }
 }

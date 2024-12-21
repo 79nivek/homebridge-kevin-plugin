@@ -1,0 +1,33 @@
+{
+  "name": "homebridge-ac",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ac/src",
+  "projectType": "library",
+  "release": {
+    "version": {
+      "generatorOptions": {
+        "packageRoot": "dist/{projectRoot}",
+        "currentVersionResolver": "git-tag"
+      }
+    }
+  },
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/ac",
+        "tsConfig": "libs/ac/tsconfig.lib.json",
+        "packageJson": "libs/ac/package.json",
+        "main": "libs/ac/src/index.ts",
+        "assets": ["libs/ac/*.md", "libs/ac/config.schema.json"]
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/{projectRoot}"
+      }
+    }
+  }
+}

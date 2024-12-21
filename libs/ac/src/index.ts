@@ -1,7 +1,7 @@
 import { API } from "homebridge";
 
-import { FanAccessory } from "./FanAccessory";
-import { AcAccessory } from "./HeaterCoolerAccessory";
+import { FanAccessory } from "./lib/FanAccessory";
+import { AcAccessory } from "./lib/HeaterCoolerAccessory";
 
 /**
  * This method registers the platform with Homebridge

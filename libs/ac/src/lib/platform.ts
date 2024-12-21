@@ -67,7 +67,7 @@ export class KevinHomebridgePlatform implements DynamicPlatformPlugin {
         uuid
       );
 
-      accessory.context.device = device;
+      accessory.context["device"] = device;
 
       // new FanAccessory(this, accessory);
 
