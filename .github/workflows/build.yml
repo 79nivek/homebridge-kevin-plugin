@@ -1,11 +1,11 @@
 name: Build and Lint
 
-on: [push, pull_request]
+# on: [push, pull_request]
 
-# on:
-#   push:
-#     tags:
-#       - v*.*.*
+on:
+  push:
+    tags:
+      - v*.*.*
 
 jobs:
   build:
