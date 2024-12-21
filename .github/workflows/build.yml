@@ -61,9 +61,8 @@ jobs:
           npm list --outdated
 
       - name: Publish to npm
-        run: npm publish --provenance --access public
+        run: pnpm nx run-many -t nx-release-publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish to npm
-        run: pnpm nx run-many -t nx-release-publish
+          NPM_CONFIG_PROVENANCE: true
+          NPM_CONFIG_ACCESS: public
