@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
 
       - uses: pnpm/action-setup@v3
         name: Install pnpm
@@ -58,7 +59,11 @@ jobs:
           pnpm audit || true  # ignore failures
           pnpm audit fix || true
           npm list --outdated
-          pnpm nx run-many -t build
+
+      - name: Publish to npm
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to npm
         run: pnpm nx run-many -t nx-release-publish
