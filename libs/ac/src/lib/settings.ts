@@ -8,3 +8,4 @@ export const PLATFORM_NAME = '@79nivek/homebridge-ac';
  */
 export const PLUGIN_NAME = '@79nivek/homebridge-ac';
 
+export const PLUGIN_VERSION = '0.1.1';
