@@ -36,6 +36,7 @@
       "options": {
         "push": true,
         "noVerify": true,
+        "branch": "master",
         "commitMessageFormat": "release({projectName}): 🎸 cut release to {version}",
         "postTargets": [
           "build",
@@ -47,6 +48,7 @@
     "github": {
       "executor": "@jscutlery/semver:github",
       "options": {
+        "branch": "master",
         "tag": "{projectName}-{tag}",
         "notes": "{projectName}-{notes}"
       }
