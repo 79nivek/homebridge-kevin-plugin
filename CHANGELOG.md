@@ -1,3 +1,16 @@
+# Changelog
+
+This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
+
+## [0.0.6](/compare/v0.0.5...v0.0.6) (2024-12-22)
+
+
+### Bug Fixes
+
+* uncomment workflow triggers in GitHub Actions build configuration 7e57c7e
+
+
+
 ## 0.0.5 (2024-12-22)
 
 This was a version bump only, there were no code changes.
