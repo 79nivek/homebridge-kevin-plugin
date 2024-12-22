@@ -38,15 +38,22 @@
         "noVerify": true,
         "commitMessageFormat": "release({projectName}): 🎸 cut release to {version}",
         "postTargets": [
-          "build"
+          "build",
+          "github",
+          "nx-release-publish"
         ]
       }
     },
-    "nx-release-publish": {
-      "dependsOn": [
-        "version"
-      ],
+    "github": {
+      "executor": "@jscutlery/semver:github",
       "options": {
+        "tag": "{projectName}-{tag}",
+        "notes": "{projectName}-{notes}"
+      }
+    },
+    "nx-release-publish": {
+      "options": {
+        "access": "dist/{projectRoot}/src/lib/*",
         "packageRoot": "dist/{projectRoot}"
       }
     }
