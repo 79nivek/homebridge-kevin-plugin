@@ -52,13 +52,12 @@ jobs:
       - name: Lint the project
         run: pnpm nx affected --target=lint --base=origin/master~1 --head=HEAD
 
+      - name: Setup Git
+        run: |
+          git config user.name "GitHub Bot"
+          git config user.email "gituser@example.com"
+
       - name: Build the project
-        run: pnpm nx affected --target=release --base=origin/master~1 --head=HEAD
-
-      - name: Execute NX Release
         env:
-          GIT_COMMITTER_NAME: GitHub Actions
-          GIT_COMMITTER_EMAIL: actions@github.com
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx nx release my-library --track-deps --push
-
+        run: pnpm nx affected --target=release --base=origin/master~1 --head=HEAD
