@@ -8,5 +8,4 @@ import { AcAccessory } from './lib/HeaterCoolerAccessory';
 export = (api: API) => {
   // api.registerPlatform(PLATFORM_NAME, KevinHomebridgePlatform);
   api.registerAccessory('homebridge-plugin-kevin', 'ac', AcAccessory);
-  console.log('ac plugin loaded');
 };
