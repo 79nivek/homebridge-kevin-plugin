@@ -1,11 +1,11 @@
 name: Build and Lint
 
-# on: [push, pull_request]
+on: [push, pull_request]
 
-on:
-  push:
-    tags:
-      - v*.*.*
+# on:
+#   push:
+#     tags:
+#       - v*.*.*
 
 jobs:
   build:
@@ -68,7 +68,7 @@ jobs:
           npm list --outdated
 
       - name: Publish to npm
-        run: pnpm nx run-many -t nx-release-publish --exclude=@79nivek/homebridge-plugin
+        run: pnpm nx run-many -t nx-release-publish --exclude=@79nivek/homebridge-plugin --verbose
         shell: bash
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
