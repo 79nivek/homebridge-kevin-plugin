@@ -39,8 +39,7 @@
         "branch": "master",
         "commitMessageFormat": "release({projectName}): 🎸 cut release to {version}",
         "postTargets": [
-          "build",
-          "github"
+          "build"
         ]
       }
     },
