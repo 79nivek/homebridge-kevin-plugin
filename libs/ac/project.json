@@ -35,7 +35,6 @@
       "executor": "@jscutlery/semver:version",
       "options": {
         "noVerify": true,
-        "push": true,
         "preid": "{projectName}",
         "commitMessageFormat": "release({projectName}): 🎸 cut release to {version}",
         "postTargets": [
