@@ -1,6 +1,6 @@
 {
   "name": "@79nivek/homebridge-ac",
-  "version": "0.0.7",
+  "version": "0.0.1",
   "files": [
     "dist",
     "!**/*.tsbuildinfo"
