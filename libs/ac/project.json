@@ -22,6 +22,7 @@
         "outputPath": "dist/{projectRoot}",
         "tsConfig": "libs/ac/tsconfig.lib.json",
         "packageJson": "libs/ac/package.json",
+        "updateBuildableProjectDepsInPackageJson": true,
         "clean": true,
         "main": "libs/ac/src/index.ts",
         "assets": [
@@ -33,11 +34,9 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "syncVersions": true,
-        "baseBranch": "master",
         "push": true,
-        "changelog": true,
-        "trackDeps": true,
+        "noVerify": true,
+        "commitMessageFormat": "release({projectName}): 🎸 cut release to {version}",
         "postTargets": [
           "build"
         ]
