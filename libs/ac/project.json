@@ -34,7 +34,6 @@
       "options": {
         "syncVersions": true,
         "baseBranch": "master",
-        "push": true,
         "trackDeps": true,
         "changelog": true,
         "npm": true
