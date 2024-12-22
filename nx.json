@@ -63,6 +63,7 @@
       "*",
       "!private"
     ],
+    "projectsRelationship": "independent",
     "version": {
       "conventionalCommits": true
     },
