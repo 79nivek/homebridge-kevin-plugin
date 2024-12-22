@@ -57,11 +57,11 @@ jobs:
       - name: Lint the project
         run: pnpm nx run-many -t lint
 
-      - name: Run change package version
-        run: pnpm nx release --skip-publish
-
       - name: Build the project
         run: pnpm nx run-many -t build
+
+      - name: Run change package version
+        run: pnpm nx release --skip-publish
 
       - name: List, audit, fix outdated dependencies and build again
         run: |
