@@ -57,6 +57,7 @@
     }
   ],
   "release": {
+    "projectsRelationship": "independent",
     "version": {
       "preVersionCommand": "pnpm nx run-many -t build",
       "conventionalCommits": true
