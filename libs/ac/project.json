@@ -55,7 +55,6 @@
     },
     "nx-release-publish": {
       "options": {
-        "access": "dist/{projectRoot}/src/lib/*",
         "packageRoot": "dist/{projectRoot}"
       }
     }

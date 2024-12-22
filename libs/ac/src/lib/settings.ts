@@ -7,8 +7,3 @@ export const PLATFORM_NAME = '@79nivek/homebridge-ac';
  * This must match the name of your plugin as defined the package.json
  */
 export const PLUGIN_NAME = '@79nivek/homebridge-ac';
-
-/**
- * This is the version of the plugin
- */
-export const PLUGIN_VERSION = '0.1.0';
