@@ -51,17 +51,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: ensure environment has an unambiguous dev branch available
+      - name: ensure environment has an unambiguous master branch available
         run: git fetch --prune --unshallow
 
       - name: Lint the project
-        run: pnpm nx run-many -t lint
+        run: pnpm run nx:affected --target=lint --base=origin/master~1 --head=HEAD
 
       - name: Build the project
-        run: pnpm nx run-many -t build
-
-      - name: Run change package version
-        run: pnpm nx release --skip-publish
+        run: pnpm run nx:affected --target=build --base=origin/master~1 --head=HEAD
 
       - name: List, audit, fix outdated dependencies and build again
         run: |
@@ -71,7 +68,7 @@ jobs:
           npm list --outdated
 
       - name: Publish to npm
-        run: pnpm nx run-many -t nx-release-publish --exclude=@79nivek/homebridge-plugin --verbose
+        run: pnpm run nx:affected --target=nx-release-publish --base=origin/master~1 --head=HEAD --exclude=@79nivek/homebridge-plugin --verbose
         shell: bash
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

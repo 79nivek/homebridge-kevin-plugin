@@ -57,19 +57,25 @@
     }
   ],
   "release": {
-    "git": {
-      "commit": true
-    },
+    "releaseTagPattern": "release/{version}",
     "projects": [
-      "libs/*"
+      "*",
+      "!private"
     ],
-    "projectsRelationship": "independent",
     "version": {
-      "generatorOptions": {
-        "currentVersionResolver": "git-tag",
-        "fallbackCurrentVersionResolver": "disk",
-        "specifierSource": "conventional-commits",
-        "updateDependents": "auto"
+      "conventionalCommits": true
+    },
+    "git": {
+      "commit": true,
+      "tag": true,
+      "commitMessage": "chore(release): {version} [skip ci]"
+    },
+    "changelog": {
+      "workspaceChangelog": false,
+      "projectChangelogs": {
+        "renderOptions": {
+          "authors": false
+        }
       }
     }
   },
