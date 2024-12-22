@@ -54,7 +54,8 @@
       "exclude": [
         "apps/home-bridge-plugin-e2e/**/*"
       ]
-    }
+    },
+    "@jscutlery/semver"
   ],
   "release": {
     "releaseTagPattern": "release/{version}",
@@ -76,6 +77,15 @@
         "renderOptions": {
           "authors": false
         }
+      }
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "cacheableOperations": [
+          "release"
+        ]
       }
     }
   },

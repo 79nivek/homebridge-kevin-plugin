@@ -15,13 +15,28 @@
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/libs/light",
         "tsConfig": "libs/light/tsconfig.lib.json",
         "packageJson": "libs/light/package.json",
         "main": "libs/light/src/index.ts",
-        "assets": ["libs/light/*.md"]
+        "assets": [
+          "libs/light/*.md"
+        ]
+      }
+    },
+    "release": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "syncVersions": true,
+        "baseBranch": "master",
+        "push": true,
+        "trackDeps": true,
+        "changelog": true,
+        "npm": true
       }
     },
     "nx-release-publish": {
