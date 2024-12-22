@@ -35,13 +35,17 @@
       "options": {
         "syncVersions": true,
         "baseBranch": "master",
-        "push": true
+        "push": true,
+        "changelog": true,
+        "trackDeps": true,
+        "postTargets": [
+          "build"
+        ]
       }
     },
     "nx-release-publish": {
       "dependsOn": [
-        "version",
-        "build"
+        "version"
       ],
       "options": {
         "packageRoot": "dist/{projectRoot}"
