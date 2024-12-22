@@ -19,9 +19,10 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/libs/ac",
+        "outputPath": "dist/{projectRoot}",
         "tsConfig": "libs/ac/tsconfig.lib.json",
         "packageJson": "libs/ac/package.json",
+        "clean": true,
         "main": "libs/ac/src/index.ts",
         "assets": [
           "libs/ac/*.md",
@@ -32,11 +33,30 @@
     "release": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "syncVersions": true,
+        "push": true,
         "baseBranch": "master",
         "trackDeps": true,
+        "syncVersions": true,
         "changelog": true,
-        "npm": true
+        "postTargets": [
+          "build",
+          "npm",
+          "github"
+        ]
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "{tag}",
+        "notes": "{notes}"
+      }
+    },
+    "npm": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public",
+        "distFolderPath": "dist/{projectRoot}"
       }
     },
     "nx-release-publish": {

@@ -1,12 +1,13 @@
 {
   "name": "@79nivek/homebridge-plugin",
-  "version": "0.0.7",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {},
   "private": false,
   "dependencies": {
     "@jscutlery/semver": "^5.5.1",
-    "axios": "^1.7.9"
+    "axios": "^1.7.9",
+    "ngx-deploy-npm": "^8.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",

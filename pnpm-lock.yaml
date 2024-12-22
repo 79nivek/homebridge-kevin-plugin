@@ -14,6 +14,9 @@ importers:
       axios:
         specifier: ^1.7.9
         version: 1.7.9
+      ngx-deploy-npm:
+        specifier: ^8.4.0
+        version: 8.4.0(@nx/devkit@20.3.0(nx@20.3.0(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.6.3))(@swc/core@1.5.29(@swc/helpers@0.5.15))))(tslib@2.8.1)
     devDependencies:
       '@eslint/js':
         specifier: ^9.8.0
@@ -3256,6 +3259,13 @@ packages:
 
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+
+  ngx-deploy-npm@8.4.0:
+    resolution: {integrity: sha512-QeXFgfuiDAgfaW5YcUQu6cj/vNea5x78iisSq4ZIpyWGmtbQyTpuZBw4sXUURjHVumf26ElnvK28zHXDRwRxZg==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@nx/devkit': '>=16.0.0 <=21.0.0'
+      tslib: ^2.3.0
 
   node-fetch@2.6.7:
     resolution: {integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==}
@@ -8179,6 +8189,11 @@ snapshots:
   negotiator@0.6.4: {}
 
   neo-async@2.6.2: {}
+
+  ngx-deploy-npm@8.4.0(@nx/devkit@20.3.0(nx@20.3.0(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.6.3))(@swc/core@1.5.29(@swc/helpers@0.5.15))))(tslib@2.8.1):
+    dependencies:
+      '@nx/devkit': 20.3.0(nx@20.3.0(@swc-node/register@1.9.2(@swc/core@1.5.29(@swc/helpers@0.5.15))(@swc/types@0.1.17)(typescript@5.6.3))(@swc/core@1.5.29(@swc/helpers@0.5.15)))
+      tslib: 2.8.1
 
   node-fetch@2.6.7:
     dependencies:
