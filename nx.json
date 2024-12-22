@@ -57,10 +57,25 @@
     }
   ],
   "release": {
+    "git": {
+      "commit": true
+    },
+    "projects": [
+      "libs/*"
+    ],
     "projectsRelationship": "independent",
     "version": {
-      "preVersionCommand": "pnpm nx run-many -t build",
-      "conventionalCommits": true
+      "generatorOptions": {
+        "currentVersionResolver": "git-tag",
+        "fallbackCurrentVersionResolver": "disk",
+        "specifierSource": "conventional-commits",
+        "updateDependents": "auto"
+      }
+    }
+  },
+  "nx-release-publish": {
+    "options": {
+      "packageRoot": "dist/libs/{projectName}"
     }
   }
 }

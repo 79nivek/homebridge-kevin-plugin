@@ -57,6 +57,9 @@ jobs:
       - name: Lint the project
         run: pnpm nx run-many -t lint
 
+      - name: Run change package version
+        run: pnpm nx release --skip-publish
+
       - name: Build the project
         run: pnpm nx run-many -t build
 
@@ -74,3 +77,11 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
           NPM_CONFIG_ACCESS: public
+
+      - name: git config
+        run: |
+          git config --global user.name "79nivek"
+          git config --global user.email "quangnam.020397@gmail.com"
+
+      - name: git push
+        run: git push
