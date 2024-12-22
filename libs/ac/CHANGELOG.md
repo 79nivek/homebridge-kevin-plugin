@@ -1,3 +1,9 @@
+## 0.2.0 (2024-12-22)
+
+### 🚀 Features
+
+- **settings:** add PLUGIN_VERSION constant for versioning ([136889b](https://github.com/79nivek/homebridge-plugin/commit/136889b))
+
 # Changelog
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
