@@ -13,13 +13,23 @@
   },
   "tags": [],
   "targets": {
+    "install": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "libs/ac",
+        "commands": [
+          "pnpm install"
+        ]
+      }
+    },
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": [
         "{options.outputPath}"
       ],
+      "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/{projectRoot}",
+        "outputPath": "libs/ac/dist",
         "tsConfig": "libs/ac/tsconfig.lib.json",
         "packageJson": "libs/ac/package.json",
         "updateBuildableProjectDepsInPackageJson": true,
@@ -28,6 +38,24 @@
         "assets": [
           "libs/ac/*.md",
           "libs/ac/config.schema.json"
+        ]
+      },
+      "configurations": {
+        "development": {
+          "watch": true
+        },
+        "production": {
+          "watch": false
+        }
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build:development"],
+      "options": {
+        "cwd": "libs/ac",
+        "commands": [
+          "npm run watch"
         ]
       }
     },

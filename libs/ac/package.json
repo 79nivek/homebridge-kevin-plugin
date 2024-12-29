@@ -1,19 +1,12 @@
 {
+  "private": false,
+  "displayName": "Homebridge AC Plugin",
   "name": "@79nivek/homebridge-ac",
-  "version": "0.1.8",
-  "files": [
-    "src",
-    "lib",
-    "dist",
-    "README.md",
-    "config.schema.json",
-    "package.json",
-    "CHANGELOG.md"
-  ],
   "author": {
-    "name": "79nivek",
+    "name": "Kevin Nguyen",
     "email": "quangnam.020397@gmail.com"
   },
+  "version": "1.0.2",
   "description": "A short description about what your plugin does.",
   "license": "Apache-2.0",
   "repository": {
@@ -23,22 +16,42 @@
   "bugs": {
     "url": "https://github.com/79nivek/homebridge-plugin/issues"
   },
+  "engines": {
+    "node": "^18.17.0 || ^20.9.0 || ^22.0.0",
+    "homebridge": "^1.8.5"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js.map",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint src/**.ts --max-warnings=0",
+    "watch": "npm link && nodemon",
+    "build": "mkdir -p dist && tsc",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
   "keywords": [
     "homebridge-plugin"
   ],
-  "engines": {
-    "node": "^22.4.1",
-    "homebridge": "^1.8.5"
-  },
   "dependencies": {
     "axios": "^1.7.9",
-    "tslib": "^2.3.0",
-    "homebridge": "^1.8.5"
+    "homebridge": "^1.8.5",
+    "tslib": "^2.8.1"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.2",
+    "@typescript-eslint/parser": "^8.18.2",
+    "eslint": "^9.17.0",
+    "homebridge": "^1.8.5",
+    "nodemon": "^3.1.9",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "nx": "20.3.0"
   },
-  "type": "commonjs",
-  "main": "./src/index.js",
-  "typings": "./src/index.d.ts"
+  "packageManager": "pnpm@8.15.7+sha512.c85cd21b6da10332156b1ca2aa79c0a61ee7ad2eb0453b88ab299289e9e8ca93e6091232b25c07cbf61f6df77128d9c849e5c9ac6e44854dbd211c49f3a67adc",
+  "nx": {}
 }
