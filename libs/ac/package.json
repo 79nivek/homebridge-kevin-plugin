@@ -2,8 +2,13 @@
   "name": "@79nivek/homebridge-ac",
   "version": "0.1.7",
   "files": [
+    "src",
+    "lib",
     "dist",
-    "!**/*.tsbuildinfo"
+    "README.md",
+    "config.schema.json",
+    "package.json",
+    "CHANGELOG.md"
   ],
   "author": {
     "name": "79nivek",
