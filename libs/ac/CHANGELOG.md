@@ -1,3 +1,11 @@
+# Changelog
+
+This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
+
+## [0.1.8](https://github.com/79nivek/homebridge-plugin/compare/homebridge-ac-0.1.7...homebridge-ac-0.1.8) (2024-12-29)
+
+
+
 ## 0.2.0 (2024-12-22)
 
 ### 🚀 Features
